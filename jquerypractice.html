@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>Hi</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<input type="text" id="input"/>
+	<input type="button" id="button" value="Add"/>
+	<ul id="add">
+		<li>hi</li>
+	</ul>
+	<script>
+		var itemId = 1 ;
+		$("#button").click(function(){
+			$("#add").append("<li id=item"+itemId+"><input type='checkbox' id='ck"+itemId+"' onclick='deleteline("+itemId+")'/>"+$("#input").val()+"<input type='button' value='X' onclick='deltxt("+itemId+")'></li>");
+      		itemId++;
+      		$("#input").val("");
+		});
+		function deltxt(id) {
+      		$("#item"+id).remove();
+ 		}
+ 		function deleteline(id) {
+			if ($("#ck"+id).prop("checked")) {
+				$('#item'+id).css('text-decoration','line-through');
+			} else {
+				$('#item'+id).css('text-decoration','none'); 
+			}
+ 		}
+	</script>
+</body>
+</html>
